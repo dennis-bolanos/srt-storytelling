@@ -7,6 +7,7 @@ import { stories } from '../data/stories'
 
 function HomePage() {
   const [activeFilters, setActiveFilters] = useState(['California', 'New York', 'Texas', 'Washington', 'Florida', 'Arizona'])
+  const [searchQuery, setSearchQuery] = useState('')
 
   const handleToggleFilter = (state) => {
     setActiveFilters(prev => {
@@ -19,9 +20,32 @@ function HomePage() {
   }
 
   const filteredStories = useMemo(() => {
-    if (activeFilters.length === 0) return []
-    return stories.filter(story => activeFilters.includes(story.state))
-  }, [activeFilters])
+    let filtered = stories
+
+    // Filter by state
+    if (activeFilters.length > 0) {
+      filtered = filtered.filter(story => activeFilters.includes(story.state))
+    }
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim()
+      filtered = filtered.filter(story => {
+        const searchableText = [
+          story.title,
+          story.description,
+          story.category,
+          story.author,
+          story.authorTitle,
+          story.state
+        ].join(' ').toLowerCase()
+        
+        return searchableText.includes(query)
+      })
+    }
+
+    return filtered
+  }, [activeFilters, searchQuery])
 
   return (
     <Layout>
@@ -55,7 +79,14 @@ function HomePage() {
             <div className="search-icon">
               <span className="material-icons">search</span>
             </div>
-            <p className="search-placeholder">Search</p>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search stories..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"
+            />
             <div className="search-dropdown-icon">
               <span className="material-icons">expand_more</span>
             </div>
