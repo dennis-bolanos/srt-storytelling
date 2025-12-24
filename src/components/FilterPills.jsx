@@ -1,20 +1,32 @@
 import React from 'react'
 
-function FilterPills({ activeFilters, onToggleFilter }) {
+function FilterPills({ stories, selectedState, onSelectState }) {
   const states = ['California', 'New York', 'Texas', 'Washington', 'Florida', 'Arizona']
+  
+  // Calculate counts for each state
+  const stateCounts = states.reduce((acc, state) => {
+    acc[state] = stories.filter(story => story.state === state).length
+    return acc
+  }, {})
+  
+  const totalCount = stories.length
 
   return (
     <div className="filter-container">
-      <div className="filter-pills">
+      <div className="filter-links">
+        <button
+          className={`filter-link ${selectedState === 'All' ? 'active' : ''}`}
+          onClick={() => onSelectState('All')}
+        >
+          <p className="description">All ({totalCount})</p>
+        </button>
         {states.map(state => (
           <button
             key={state}
-            className={`filter-pill ${activeFilters.includes(state) ? 'active' : ''}`}
-            data-state={state}
-            onClick={() => onToggleFilter(state)}
+            className={`filter-link ${selectedState === state ? 'active' : ''}`}
+            onClick={() => onSelectState(state)}
           >
-            <span className="check-icon">✓</span>
-            <span className="filter-text">{state}</span>
+            <p className="description">{state} ({stateCounts[state]})</p>
           </button>
         ))}
       </div>

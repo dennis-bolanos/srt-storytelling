@@ -1,3 +1,6 @@
-/* Import main stylesheet */
+/* Import main stylesheet first */
 @import '../styles.css';
+
+/* Tailwind CSS utilities only (no base reset to preserve existing styles) */
+@tailwind utilities;
 

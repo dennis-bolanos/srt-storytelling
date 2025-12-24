@@ -6,25 +6,19 @@ import FilterPills from '../components/FilterPills'
 import { stories } from '../data/stories'
 
 function HomePage() {
-  const [activeFilters, setActiveFilters] = useState(['California', 'New York', 'Texas', 'Washington', 'Florida', 'Arizona'])
+  const [selectedState, setSelectedState] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
 
-  const handleToggleFilter = (state) => {
-    setActiveFilters(prev => {
-      if (prev.includes(state)) {
-        return prev.filter(s => s !== state)
-      } else {
-        return [...prev, state]
-      }
-    })
+  const handleSelectState = (state) => {
+    setSelectedState(state)
   }
 
   const filteredStories = useMemo(() => {
     let filtered = stories
 
     // Filter by state
-    if (activeFilters.length > 0) {
-      filtered = filtered.filter(story => activeFilters.includes(story.state))
+    if (selectedState !== 'All') {
+      filtered = filtered.filter(story => story.state === selectedState)
     }
 
     // Filter by search query
@@ -45,7 +39,7 @@ function HomePage() {
     }
 
     return filtered
-  }, [activeFilters, searchQuery])
+  }, [selectedState, searchQuery])
 
   return (
     <Layout>
@@ -56,15 +50,9 @@ function HomePage() {
               <p className="section-title" data-node-id="I17:4790;195:7370">&nbsp;</p>
             </div>
           </div>
-          <div className="menu-stack" data-node-id="17:6737">
-            <div className="menu-item" data-node-id="17:6728">
-              <Link to="/my-stories" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <p>My Stories</p>
-              </Link>
-            </div>
-          </div>
           <div className="sidenav-filters">
-            <FilterPills activeFilters={activeFilters} onToggleFilter={handleToggleFilter} />
+            <h4 className="my-6">Categories</h4>
+            <FilterPills stories={stories} selectedState={selectedState} onSelectState={handleSelectState} />
           </div>
         </aside>
 
@@ -107,8 +95,8 @@ function HomePage() {
           </div>
           <div className="button-container" data-node-id="17:7137">
             <Link to="/share-story" className="share-button" data-node-id="17:7129">
-              <div className="plus-icon">
-                <img src="https://www.figma.com/api/mcp/asset/03c6b956-3dd8-4e00-8617-371986f2410c" alt="Plus" />
+              <div className="comment-icon">
+                <span className="material-icons">comment</span>
               </div>
               <p className="button-text" data-node-id="I17:7129;185:2494">Share Your Story</p>
             </Link>

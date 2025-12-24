@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getAuthorAvatar } from '../utils/authorAvatars'
 
 function StoryCard({ story }) {
   return (
@@ -12,7 +13,6 @@ function StoryCard({ story }) {
       </div>
       <div className="story-content">
         <div className="title-category">
-          <p className="category">{story.category}</p>
           <p className="title">{story.title}</p>
         </div>
         <p className="description">{story.description}</p>
@@ -22,11 +22,13 @@ function StoryCard({ story }) {
         <div className="user-card">
           <div className="user-thumb">
             <div className="user-icon">
-              <img src="https://www.figma.com/api/mcp/asset/99811727-dfff-46cc-bb1d-14784cc5f280" alt="User" />
+              <img src={getAuthorAvatar(story.author)} alt={story.author} />
             </div>
           </div>
           <div className="user-details">
-            <p className="user-name">{story.author}</p>
+            <Link to={`/author/${encodeURIComponent(story.author)}`} className="user-name-link">
+              <p className="user-name">{story.author}</p>
+            </Link>
             <p className="user-title">{story.authorTitle}</p>
           </div>
         </div>

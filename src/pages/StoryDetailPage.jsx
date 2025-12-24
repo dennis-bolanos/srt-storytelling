@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import Layout from '../components/Layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { stories } from '../data/stories'
+import { getAuthorAvatar } from '../utils/authorAvatars'
 
 function StoryDetailPage() {
   const { id } = useParams()
@@ -37,11 +38,13 @@ function StoryDetailPage() {
             <div className="user-card">
               <div className="user-thumb">
                 <div className="user-icon">
-                  <img src="https://www.figma.com/api/mcp/asset/99811727-dfff-46cc-bb1d-14784cc5f280" alt="User" />
+                  <img src={getAuthorAvatar(story.author)} alt={story.author} />
                 </div>
               </div>
               <div className="user-details">
-                <p className="user-name">{story.author}</p>
+                <Link to={`/author/${encodeURIComponent(story.author)}`} className="user-name-link">
+                  <p className="user-name">{story.author}</p>
+                </Link>
                 <p className="user-title">{story.authorTitle}</p>
               </div>
             </div>

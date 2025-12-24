@@ -131,10 +131,9 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    gap: 64px;
     align-items: center;
-    padding: 80px 60px;
-    width: 350px;
+    padding: 40px 20px 40px 60px;
+    width: 300px;
     flex-shrink: 0;
 }
 
@@ -182,6 +181,10 @@ body {
     margin-top: 32px;
 }
 
+.sidenav-filters h4.my-6 {
+    padding-bottom: 24px;
+}
+
 .sidenav-filters .filter-container {
     margin-bottom: 0;
 }
@@ -197,6 +200,38 @@ body {
     justify-content: flex-start;
 }
 
+.filter-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.filter-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.filter-link .description {
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.filter-link:hover .description {
+    color: #0f62fe;
+}
+
+.filter-link.active .description {
+    color: #0f62fe;
+    font-weight: 500;
+}
+
 /* Center Content */
 .center-content {
     background-color: #ffffff;
@@ -207,7 +242,7 @@ body {
     align-items: center;
     min-height: 0;
     min-width: 0;
-    padding: 80px 60px 160px 60px;
+    padding: 50px 16px 160px 16px;
 }
 
 .center-content .section-title {
@@ -368,7 +403,6 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 592px;
 }
 
 .pending-frame {
@@ -391,7 +425,7 @@ body {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
-    padding: 24px 16px 16px 16px;
+    padding: 12px 16px 16px 16px;
     width: 100%;
 }
 
@@ -402,14 +436,6 @@ body {
     align-items: flex-start;
     line-height: 1.1;
     width: 100%;
-}
-
-.category {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.1;
-    color: #21272a;
 }
 
 .title {
@@ -433,7 +459,6 @@ body {
     display: flex;
     gap: 16px;
     align-items: center;
-    padding-top: 16px;
     width: 100%;
 }
 
@@ -451,8 +476,8 @@ body {
 .user-icon {
     overflow: hidden;
     position: relative;
-    width: 24px;
-    height: 24px;
+    width: 37px;
+    height: 37px;
     flex-shrink: 0;
 }
 
@@ -461,6 +486,8 @@ body {
     max-width: none;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .user-details {
@@ -471,6 +498,27 @@ body {
     min-height: 0;
     min-width: 0;
     font-size: 16px;
+}
+
+.user-name-link {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    transition: color 0.2s ease;
+}
+
+.user-name-link:hover {
+    color: #0f62fe;
+}
+
+.user-name-link .user-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.3;
+    color: inherit;
+    width: 100%;
+    cursor: pointer;
 }
 
 .user-name {
@@ -484,8 +532,7 @@ body {
 
 .user-title {
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.4;
     color: #697077;
     width: 100%;
@@ -495,12 +542,13 @@ body {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-    padding: 12px 16px 0 16px;
+    padding: 16px 16px 0 16px;
+    width: 100%;
 }
 
 .story-tag {
     padding: 4px 12px;
-    background-color: #f2f4f8;
+    background-color: #ebf2ff;
     border-radius: 16px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -516,13 +564,12 @@ body {
 .view-more-btn {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #0f62fe;
+    background-color: #878787;
     color: #ffffff;
-    border: 2px solid #0f62fe;
+    border: 2px solid #878787;
     border-radius: 4px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -530,8 +577,8 @@ body {
 }
 
 .view-more-btn:hover {
-    background-color: #0050e6;
-    border-color: #0050e6;
+    background-color: #4b4b4b;
+    border-color: #4b4b4b;
 }
 
 .view-more-btn:active {
@@ -546,8 +593,8 @@ body {
     flex-direction: column;
     gap: 64px;
     align-items: center;
-    padding: 80px 60px;
-    width: 450px;
+    padding: 50px 16px;
+    width: 350px;
     flex-shrink: 0;
 }
 
@@ -559,20 +606,20 @@ body {
 }
 
 .share-button {
-    background-color: #0f62fe;
-    border: 2px solid #0f62fe;
+    background-color: #787878;
+    border: 2px solid #787878;
     display: flex;
-    height: 56px;
+    height: 48px;
     align-items: center;
     justify-content: center;
-    padding: 16px;
     cursor: pointer;
     width: 100%;
+    border-radius: 5px;
 }
 
 .share-button:hover {
-    background-color: #0050e6;
-    border-color: #0050e6;
+    background-color: #4e4e4e;
+    border-color: #4e4e4e;
 }
 
 .plus-icon {
@@ -593,7 +640,7 @@ body {
 .button-text {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1;
     color: #ffffff;
     letter-spacing: 0.5px;
@@ -1323,6 +1370,35 @@ body {
     padding: 60px 80px 160px 80px;
 }
 
+/* Author Page */
+.author-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 80px 160px 80px;
+}
+
+.author-page-header {
+    margin-bottom: 48px;
+    width: 100%;
+}
+
+.author-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1;
+    color: #21272a;
+    margin-bottom: 8px;
+}
+
+.author-page-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #697077;
+}
+
 .story-detail-header {
     margin-bottom: 48px;
 }
@@ -1592,7 +1668,6 @@ body {
     
     .story-box {
         width: 100%;
-        max-width: 592px;
     }
     
     .pending-frame {
@@ -1685,6 +1760,14 @@ body {
         padding: 40px 20px 120px 20px;
     }
 
+    .author-page-container {
+        padding: 40px 20px 120px 20px;
+    }
+
+    .author-page-title {
+        font-size: 28px;
+    }
+
     .story-detail-title {
         font-size: 28px;
     }
@@ -1740,3 +1823,8 @@ body {
     }
 }
 
+/* DB Edits */
+
+.comment-icon {
+    color: white;
+}

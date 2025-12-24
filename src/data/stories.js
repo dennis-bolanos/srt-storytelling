@@ -117,7 +117,7 @@ export const stories = [
     title: 'Sedona\'s Red Rocks: Arizona\'s Spiritual Landscape',
     description: 'Discover the mystical beauty of Sedona\'s red rock formations, where ancient geology meets spiritual energy. Explore hiking trails, vortex sites, and stunning desert vistas that have drawn visitors for generations.',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=592&h=320&fit=crop',
-    author: 'Robert Martinez',
+    author: 'James Wilson',
     authorTitle: 'Geology Enthusiast'
   },
   {
@@ -177,7 +177,7 @@ export const stories = [
     title: 'Antelope Canyon: Arizona\'s Slot Canyon Beauty',
     description: 'Discover the ethereal beauty of Antelope Canyon, where light and shadow create stunning visual displays. Explore the narrow sandstone passageways carved by water and wind over millions of years.',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=592&h=320&fit=crop',
-    author: 'Daniel Kim',
+    author: 'James Wilson',
     authorTitle: 'Photography Guide'
   },
   {

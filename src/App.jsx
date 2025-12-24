@@ -10,6 +10,7 @@ import ReviewStoryPage from './pages/ReviewStoryPage'
 import MyStoriesPage from './pages/MyStoriesPage'
 import EditStoryPage from './pages/EditStoryPage'
 import StoryDetailPage from './pages/StoryDetailPage'
+import AuthorPage from './pages/AuthorPage'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/my-stories" element={<MyStoriesPage />} />
       <Route path="/edit-story/:id" element={<EditStoryPage />} />
       <Route path="/story/:id" element={<StoryDetailPage />} />
+      <Route path="/author/:authorName" element={<AuthorPage />} />
     </Routes>
   )
 }

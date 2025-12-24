@@ -27,6 +27,11 @@ function Navbar() {
         <div className="menu-item" data-node-id="I17:4883;17:3422;117:332">
           <p>Contact</p>
         </div>
+        <div className="menu-item" data-node-id="I17:4883;17:3422;117:333">
+          <Link to="/my-stories" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <p>My Stories</p>
+          </Link>
+        </div>
         <div className="menu-item" data-node-id="I17:4883;17:3422;122:1439">
           <span className="material-icons">account_circle</span>
         </div>
