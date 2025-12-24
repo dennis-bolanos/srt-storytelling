@@ -10,6 +10,7 @@ function StoryCard({ story }) {
       </div>
       <div className="story-tags">
         <span className="story-tag">{story.state}</span>
+        <span className="story-tag">{story.category}</span>
       </div>
       <div className="story-content">
         <div className="title-category">

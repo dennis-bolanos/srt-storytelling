@@ -23,7 +23,7 @@ const authorAvatarMap = {
   'Kevin Mitchell': 'https://i.pravatar.cc/150?img=63',
   'Nicole Adams': 'https://i.pravatar.cc/150?img=66',
   'Brian Thompson': 'https://i.pravatar.cc/150?img=69',
-  'Stephanie Wright': 'https://i.pravatar.cc/150?img=72'
+  'Stephanie Wright': 'https://i.pravatar.cc/150?img=68'
 }
 
 export function getAuthorAvatar(authorName) {
