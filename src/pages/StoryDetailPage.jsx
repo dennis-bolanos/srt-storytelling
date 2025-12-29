@@ -31,7 +31,20 @@ function StoryDetailPage() {
       <div className="story-detail-container">
         <div className="story-detail-header">
           <div className="story-tags">
-            <span className="story-tag">{story.category}</span>
+            {(() => {
+              const states = Array.isArray(story.states) ? story.states : [story.state || story.states].filter(Boolean)
+              const categories = Array.isArray(story.categories) ? story.categories : [story.category || story.categories].filter(Boolean)
+              return (
+                <>
+                  {states.map((state, index) => (
+                    <span key={`state-${index}`} className="story-tag">{state}</span>
+                  ))}
+                  {categories.map((category, index) => (
+                    <span key={`category-${index}`} className="story-tag">{category}</span>
+                  ))}
+                </>
+              )
+            })()}
           </div>
           <h1 className="story-detail-title">{story.title}</h1>
           <div className="story-detail-meta">

@@ -1,15 +1,14 @@
 import React from 'react'
 
 function FilterPills({ stories, selectedState, onSelectState }) {
-  const states = ['California', 'New York', 'Texas', 'Washington', 'Florida', 'Arizona']
-  
-  // Calculate counts for each state
-  const stateCounts = states.reduce((acc, state) => {
-    acc[state] = stories.filter(story => story.state === state).length
+  // Get all unique states from stories (handle both array and single value)
+  const allStates = stories.reduce((acc, story) => {
+    const states = Array.isArray(story.states) ? story.states : [story.state || story.states].filter(Boolean)
+    states.forEach(state => acc.add(state))
     return acc
-  }, {})
+  }, new Set())
   
-  const totalCount = stories.length
+  const states = Array.from(allStates).sort()
 
   return (
     <div className="filter-container">
@@ -18,7 +17,7 @@ function FilterPills({ stories, selectedState, onSelectState }) {
           className={`filter-link ${selectedState === 'All' ? 'active' : ''}`}
           onClick={() => onSelectState('All')}
         >
-          <p className="description">All ({totalCount})</p>
+          <p className="description">All</p>
         </button>
         {states.map(state => (
           <button
@@ -26,7 +25,7 @@ function FilterPills({ stories, selectedState, onSelectState }) {
             className={`filter-link ${selectedState === state ? 'active' : ''}`}
             onClick={() => onSelectState(state)}
           >
-            <p className="description">{state} ({stateCounts[state]})</p>
+            <p className="description">{state}</p>
           </button>
         ))}
       </div>

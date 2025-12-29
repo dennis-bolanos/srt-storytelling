@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom'
 import { getAuthorAvatar } from '../utils/authorAvatars'
 
 function StoryCard({ story }) {
+  // Handle both array and single value formats for backward compatibility
+  const states = Array.isArray(story.states) ? story.states : [story.state || story.states].filter(Boolean)
+  const categories = Array.isArray(story.categories) ? story.categories : [story.category || story.categories].filter(Boolean)
+  const primaryState = states[0] || ''
+
   return (
-    <article className="story-box" data-state={story.state}>
+    <article className="story-box" data-state={primaryState}>
       <div className="pending-frame">
         <img src={story.image} alt={story.title} />
       </div>
       <div className="story-tags">
-        <span className="story-tag">{story.state}</span>
-        <span className="story-tag">{story.category}</span>
+        {states.map((state, index) => (
+          <span key={`state-${index}`} className="story-tag">{state}</span>
+        ))}
+        {categories.map((category, index) => (
+          <span key={`category-${index}`} className="story-tag">{category}</span>
+        ))}
       </div>
       <div className="story-content">
         <div className="title-category">

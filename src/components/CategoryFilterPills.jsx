@@ -1,16 +1,14 @@
 import React from 'react'
 
 function CategoryFilterPills({ stories, selectedCategory, onSelectCategory }) {
-  // Get all unique categories from stories
-  const categories = [...new Set(stories.map(story => story.category))].sort()
-  
-  // Calculate counts for each category
-  const categoryCounts = categories.reduce((acc, category) => {
-    acc[category] = stories.filter(story => story.category === category).length
+  // Get all unique categories from stories (handle both array and single value)
+  const allCategories = stories.reduce((acc, story) => {
+    const categories = Array.isArray(story.categories) ? story.categories : [story.category || story.categories].filter(Boolean)
+    categories.forEach(category => acc.add(category))
     return acc
-  }, {})
+  }, new Set())
   
-  const totalCount = stories.length
+  const categories = Array.from(allCategories).sort()
 
   return (
     <div className="filter-container">
@@ -19,7 +17,7 @@ function CategoryFilterPills({ stories, selectedCategory, onSelectCategory }) {
           className={`filter-link ${selectedCategory === 'All' ? 'active' : ''}`}
           onClick={() => onSelectCategory('All')}
         >
-          <p className="description">All ({totalCount})</p>
+          <p className="description">All</p>
         </button>
         {categories.map(category => (
           <button
@@ -27,7 +25,7 @@ function CategoryFilterPills({ stories, selectedCategory, onSelectCategory }) {
             className={`filter-link ${selectedCategory === category ? 'active' : ''}`}
             onClick={() => onSelectCategory(category)}
           >
-            <p className="description">{category} ({categoryCounts[category]})</p>
+            <p className="description">{category}</p>
           </button>
         ))}
       </div>
