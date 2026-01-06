@@ -8,10 +8,37 @@ function StoryCard({ story }) {
   const categories = Array.isArray(story.categories) ? story.categories : [story.category || story.categories].filter(Boolean)
   const primaryState = states[0] || ''
 
+  // Generate a consistent random share count based on story ID (for demo purposes)
+  // This ensures the same story always shows the same share count
+  const getShareCount = (id) => {
+    // Use story ID as seed for consistent random number
+    const seed = id || Math.floor(Math.random() * 1000)
+    const random = ((seed * 9301 + 49297) % 233280) / 233280
+    // Generate share count between 10 and 9999
+    const count = Math.floor(10 + random * 9989)
+    return count
+  }
+
+  const shareCount = getShareCount(story.id)
+
+  // Format share count (e.g., 1.2K, 5.3M)
+  const formatShareCount = (count) => {
+    if (count >= 1000000) {
+      return (count / 1000000).toFixed(1) + 'M'
+    } else if (count >= 1000) {
+      return (count / 1000).toFixed(1) + 'K'
+    }
+    return count.toString()
+  }
+
   return (
     <article className="story-box" data-state={primaryState}>
       <div className="pending-frame">
         <img src={story.image} alt={story.title} />
+        <div className="share-count-badge">
+          <span className="material-icons share-icon">share</span>
+          <span className="share-number">{formatShareCount(shareCount)}</span>
+        </div>
       </div>
       <div className="story-tags">
         {states.map((state, index) => (
