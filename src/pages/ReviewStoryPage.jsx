@@ -10,7 +10,7 @@ function ReviewStoryPage() {
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' },
+    { label: 'Create & Share Your Story', path: '/share-story' },
     { label: 'Review Story', path: '/review-story' }
   ]
 
@@ -20,6 +20,7 @@ function ReviewStoryPage() {
     const newStory = {
       id: Date.now(),
       title: formData.step1 || 'Untitled Story',
+      image: formData.image || '',
       date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       status: 'Pending Review',
       formData: formData
@@ -39,6 +40,7 @@ function ReviewStoryPage() {
 
   const stepLabels = {
     step1: 'Story Title',
+    image: 'Insert your image',
     step2: 'Why does it matter?',
     step3: 'What did you learn?',
     step4: 'How do you feel about this?',
@@ -59,7 +61,15 @@ function ReviewStoryPage() {
             <div key={stepKey} className="review-section">
               <h2 className="review-section-title">{label}</h2>
               <div className="review-section-content">
-                {formData[stepKey] ? (
+                {stepKey === 'image' ? (
+                  formData[stepKey] ? (
+                    <div className="review-image">
+                      <img src={formData[stepKey]} alt="Story image" />
+                    </div>
+                  ) : (
+                    <p className="review-text-empty">No image provided</p>
+                  )
+                ) : formData[stepKey] ? (
                   <p className="review-text">{formData[stepKey]}</p>
                 ) : (
                   <p className="review-text-empty">No answer provided</p>
@@ -71,7 +81,7 @@ function ReviewStoryPage() {
 
         <div className="review-story-actions">
           <Link to="/guided-story/step5" className="btn-secondary">Back to Edit</Link>
-          <button onClick={handleSubmit} className="btn-primary">Submit Story</button>
+          <button onClick={handleSubmit} className="btn-primary">Submit Story for Review</button>
         </div>
       </div>
     </Layout>

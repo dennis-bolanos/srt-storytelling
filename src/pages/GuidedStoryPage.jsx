@@ -11,7 +11,7 @@ function GuidedStoryPage() {
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' },
+    { label: 'Create & Share Your Story', path: '/share-story' },
     { label: 'Guided Story', path: '/guided-story' }
   ]
 
@@ -64,7 +64,7 @@ function GuidedStoryPage() {
             <div className="form-group">
               <input
                 type="text"
-                className="story-textarea"
+                className="story-textarea step-1"
                 id="story-title"
                 name="story-title"
                 placeholder="Enter your story title..."

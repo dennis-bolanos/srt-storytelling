@@ -468,6 +468,12 @@ body {
     line-height: 1;
 }
 
+.filters-header {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
 .sidenav-filters {
     width: 100%;
     margin-top: 16px;
@@ -1428,6 +1434,56 @@ body {
     margin-bottom: 32px;
 }
 
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 16px;
+    border: 1px solid #c1c7cd;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.checkbox-option:hover {
+    border-color: #0f62fe;
+    background-color: #f4f4f4;
+}
+
+.checkbox-option input[type="radio"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #0f62fe;
+}
+
+.checkbox-option input[type="radio"]:checked + .checkbox-label {
+    color: #0f62fe;
+    font-weight: 500;
+}
+
+.checkbox-option:has(input[type="radio"]:checked) {
+    border-color: #0f62fe;
+    background-color: #f0f7ff;
+}
+
+.checkbox-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #21272a;
+    flex: 1;
+}
+
 .story-textarea {
     width: 100%;
     padding: 16px;
@@ -1440,7 +1496,6 @@ body {
     color: #21272a;
     background-color: #ffffff;
     resize: vertical;
-    min-height: 200px;
     transition: border-color 0.2s ease;
 }
 
@@ -1452,6 +1507,22 @@ body {
 
 .story-textarea::placeholder {
     color: #697077;
+}
+
+.character-counter {
+    margin-top: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: right;
+}
+
+.character-counter-warning {
+    color: #da1e28;
+}
+
+.character-counter-valid {
+    color: #24a148;
 }
 
 .form-actions {
@@ -1491,6 +1562,19 @@ body {
 .btn-primary:active {
     background-color: #002d9c;
     border-color: #002d9c;
+}
+
+.btn-primary:disabled {
+    background-color: #c1c7cd;
+    border-color: #c1c7cd;
+    color: #ffffff;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-primary:disabled:hover {
+    background-color: #c1c7cd;
+    border-color: #c1c7cd;
 }
 
 .btn-secondary {
@@ -1841,6 +1925,17 @@ body {
     margin-top: 16px;
 }
 
+.review-image {
+    margin-top: 16px;
+}
+
+.review-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #dde1e6;
+}
+
 .review-text {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -1947,17 +2042,72 @@ body {
     margin-bottom: 32px;
 }
 
-.image-preview {
+.image-preview-container {
+    position: relative;
+    display: inline-block;
     margin-top: 16px;
     border-radius: 4px;
     overflow: hidden;
-    max-width: 400px;
+    max-width: 500px;
+    width: 100%;
 }
 
-.image-preview img {
+.image-preview {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 4px;
+    border: 1px solid #c1c7cd;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.remove-image-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.remove-image-btn .material-icons {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.file-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #c1c7cd;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.file-input:focus {
+    outline: none;
+    border-color: #0f62fe;
+    box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.1);
+}
+
+.form-error {
+    color: #da1e28;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 /* Responsive adjustments */
@@ -2373,4 +2523,7 @@ body {
 
 .comment-icon {
     color: white;
+}
+.story-textarea.step-1 {
+    min-height: inherit;
 }

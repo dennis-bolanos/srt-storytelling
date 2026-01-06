@@ -13,6 +13,7 @@ export const useStoryForm = () => {
 export const StoryFormProvider = ({ children }) => {
   const [formData, setFormData] = useState({
     step1: '',
+    image: '',
     step2: '',
     step3: '',
     step4: '',
@@ -29,6 +30,7 @@ export const StoryFormProvider = ({ children }) => {
   const resetFormData = () => {
     setFormData({
       step1: '',
+      image: '',
       step2: '',
       step3: '',
       step4: '',

@@ -4,21 +4,36 @@ import Layout from '../components/Layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { useStoryForm } from '../context/StoryFormContext'
 
+const FEELING_OPTIONS = [
+  'Super excited',
+  'Good enough',
+  'Just OK',
+  'Not a fan',
+  'Disappointed'
+]
+
 function GuidedStoryStep4() {
   const navigate = useNavigate()
   const { formData, updateFormData } = useStoryForm()
-  const [value, setValue] = useState(formData.step4 || '')
+  const [selectedFeeling, setSelectedFeeling] = useState(formData.step4 || '')
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' },
+    { label: 'Create & Share Your Story', path: '/share-story' },
     { label: 'Guided Story', path: '/guided-story' }
   ]
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateFormData('step4', value)
+    if (!selectedFeeling) {
+      return // Prevent submission if no option selected
+    }
+    updateFormData('step4', selectedFeeling)
     navigate('/guided-story/step5')
+  }
+
+  const handleFeelingChange = (feeling) => {
+    setSelectedFeeling(feeling)
   }
 
   return (
@@ -62,21 +77,32 @@ function GuidedStoryStep4() {
 
           <form className="story-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <textarea
-                className="story-textarea"
-                id="how-feel"
-                name="how-feel"
-                rows="8"
-                placeholder="Describe your feelings about this experience..."
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                required
-              ></textarea>
+              <div className="checkbox-group">
+                {FEELING_OPTIONS.map((feeling, index) => (
+                  <label key={index} className="checkbox-option">
+                    <input
+                      type="radio"
+                      name="how-feel"
+                      value={feeling}
+                      checked={selectedFeeling === feeling}
+                      onChange={() => handleFeelingChange(feeling)}
+                      required
+                    />
+                    <span className="checkbox-label">{feeling}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             <div className="form-actions">
               <Link to="/guided-story/step3" className="btn-secondary">Back</Link>
-              <button type="submit" className="btn-primary">Continue</button>
+              <button 
+                type="submit" 
+                className="btn-primary"
+                disabled={!selectedFeeling}
+              >
+                Continue
+              </button>
             </div>
           </form>
         </div>

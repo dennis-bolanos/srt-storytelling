@@ -86,6 +86,9 @@ function HomePage() {
               onRemoveCategory={handleRemoveCategory}
               onClearAll={handleClearAll}
             />
+            <div className="filters-header">
+              <h3 className="my-6">Filters</h3>
+            </div>
             <div className="sidenav-filters">
               <h4 className="my-6">States</h4>
               <FilterPills stories={stories} selectedState={selectedState} onSelectState={handleSelectState} />
@@ -138,7 +141,7 @@ function HomePage() {
                 <div className="comment-icon">
                   <span className="material-icons">comment</span>
                 </div>
-                <p className="button-text" data-node-id="I17:7129;185:2494">Share Your Story</p>
+                <p className="button-text" data-node-id="I17:7129;185:2494">Create & Share Your Story</p>
               </Link>
             </div>
           </aside>

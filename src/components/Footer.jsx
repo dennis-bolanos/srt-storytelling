@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-top" data-node-id="17:5488">
         <div className="footer-logo" data-node-id="17:5784">
           <div className="logo-icon">
-            <img src="https://www.figma.com/api/mcp/asset/f58e0125-b2ba-4354-8248-66d125169249" alt="SRT Logo" />
+            <img src="/assets/images/chatbubble-ellipses-outline-white.png" alt="SRT Logo" />
           </div>
           <div className="logo-text footer-logo-text">
             <p className="logo-title">SRT Storytelling Project</p>
@@ -75,19 +75,19 @@ function Footer() {
             </div>
             <div className="social-icons" data-node-id="17:5521">
               <div className="social-icon" data-node-id="17:5522">
-                <img src="https://www.figma.com/api/mcp/asset/8068beac-d0f8-4534-a8e3-01a6b624a4b8" alt="YouTube" />
+                <img src="/assets/images/youtube.png" alt="YouTube" />
               </div>
               <div className="social-icon" data-node-id="17:5523">
-                <img src="https://www.figma.com/api/mcp/asset/e9975ebb-5ccf-463b-9656-046a1aef7f36" alt="Facebook" />
+                <img src="/assets/images/facebook.png" alt="Facebook" />
               </div>
               <div className="social-icon" data-node-id="17:5524">
-                <img src="https://www.figma.com/api/mcp/asset/98a82fce-0740-4df7-b19f-263c742e584d" alt="Twitter" />
+                <img src="/assets/images/twitter.png" alt="Twitter" />
               </div>
               <div className="social-icon" data-node-id="17:5525">
-                <img src="https://www.figma.com/api/mcp/asset/3d320005-ebe1-4643-82fd-f8d3bb990693" alt="Instagram" />
+                <img src="/assets/images/instagram.png" alt="Instagram" />
               </div>
               <div className="social-icon" data-node-id="17:5526">
-                <img src="https://www.figma.com/api/mcp/asset/c2287db5-b7d4-4a06-8933-0b58c8298ec1" alt="LinkedIn" />
+                <img src="/assets/images/linkedin.png" alt="LinkedIn" />
               </div>
             </div>
           </div>

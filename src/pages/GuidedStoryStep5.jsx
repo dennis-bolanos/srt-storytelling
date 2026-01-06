@@ -11,7 +11,7 @@ function GuidedStoryStep5() {
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' },
+    { label: 'Create & Share Your Story', path: '/share-story' },
     { label: 'Guided Story', path: '/guided-story' }
   ]
 

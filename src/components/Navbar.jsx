@@ -17,7 +17,7 @@ function Navbar() {
       <div className="logo-container" data-node-id="I17:4883;17:3420">
         <div className="srt-logo">
           <div className="logo-icon" data-node-id="17:3364">
-            <img src="https://www.figma.com/api/mcp/asset/7048b34a-e206-4db4-a8ff-bf77344fe7f8" alt="SRT Logo" />
+            <img src="/assets/images/chatbubble-ellipses-outline.png" alt="SRT Logo" />
           </div>
           <div className="logo-text">
             <p className="logo-title" data-node-id="17:3347">SRT Storytelling Project</p>

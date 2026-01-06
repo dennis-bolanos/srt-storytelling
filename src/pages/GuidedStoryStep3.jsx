@@ -4,19 +4,28 @@ import Layout from '../components/Layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { useStoryForm } from '../context/StoryFormContext'
 
+const MIN_CHARACTERS = 100
+
 function GuidedStoryStep3() {
   const navigate = useNavigate()
   const { formData, updateFormData } = useStoryForm()
   const [value, setValue] = useState(formData.step3 || '')
+  
+  const characterCount = value.length
+  const remainingCharacters = MIN_CHARACTERS - characterCount
+  const isValid = characterCount >= MIN_CHARACTERS
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' },
+    { label: 'Create & Share Your Story', path: '/share-story' },
     { label: 'Guided Story', path: '/guided-story' }
   ]
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (characterCount < MIN_CHARACTERS) {
+      return // Prevent submission if minimum not met
+    }
     updateFormData('step3', value)
     navigate('/guided-story/step4')
   }
@@ -71,12 +80,26 @@ function GuidedStoryStep3() {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 required
+                minLength={MIN_CHARACTERS}
               ></textarea>
+              <div className={`character-counter ${!isValid ? 'character-counter-warning' : 'character-counter-valid'}`}>
+                {remainingCharacters > 0 ? (
+                  <span>{remainingCharacters} characters remaining (minimum {MIN_CHARACTERS})</span>
+                ) : (
+                  <span>{characterCount} characters</span>
+                )}
+              </div>
             </div>
 
             <div className="form-actions">
               <Link to="/guided-story/step2" className="btn-secondary">Back</Link>
-              <button type="submit" className="btn-primary">Continue</button>
+              <button 
+                type="submit" 
+                className="btn-primary"
+                disabled={!isValid}
+              >
+                Continue
+              </button>
             </div>
           </form>
         </div>

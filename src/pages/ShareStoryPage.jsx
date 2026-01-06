@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 function ShareStoryPage() {
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Share Your Story', path: '/share-story' }
+    { label: 'Create & Share Your Story', path: '/share-story' }
   ]
 
   return (
@@ -14,7 +14,7 @@ function ShareStoryPage() {
       <Breadcrumbs items={breadcrumbItems} />
       <div className="share-story-container">
         <div className="share-story-header">
-          <h1 className="share-story-title">Share Your Story</h1>
+          <h1 className="share-story-title">Create & Share Your Story</h1>
           <p className="share-story-subtitle">Choose how you'd like to create your story</p>
         </div>
 
