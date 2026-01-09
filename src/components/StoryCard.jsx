@@ -63,10 +63,22 @@ function StoryCard({ story }) {
             </div>
           </div>
           <div className="user-details">
-            <Link to={`/author/${encodeURIComponent(story.author)}`} className="user-name-link">
-              <p className="user-name">{story.author}</p>
-            </Link>
-            <p className="user-title">{story.authorTitle}</p>
+            <div className="user-details-left">
+              <Link to={`/author/${encodeURIComponent(story.author)}`} className="user-name-link">
+                <p className="user-name">{story.author}</p>
+              </Link>
+              <p className="user-title">{story.authorTitle}</p>
+              {story.unit && <p className="story-unit">{story.unit}</p>}
+            </div>
+            <div className="user-details-right">
+              {story.date && <p className="story-date">{story.date}</p>}
+              {story.location && (
+                <p className="story-location">
+                  <span className="material-icons location-icon">location_on</span>
+                  {story.location}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>

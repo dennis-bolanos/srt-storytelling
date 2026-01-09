@@ -4,12 +4,14 @@ import Layout from '../components/Layout'
 import StoryCard from '../components/StoryCard'
 import FilterPills from '../components/FilterPills'
 import CategoryFilterPills from '../components/CategoryFilterPills'
+import UnitFilterPills from '../components/UnitFilterPills'
 import ActiveFilters from '../components/ActiveFilters'
 import { stories } from '../data/stories'
 
 function HomePage() {
   const [selectedState, setSelectedState] = useState('All')
   const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedUnit, setSelectedUnit] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleSelectState = (state) => {
@@ -20,6 +22,10 @@ function HomePage() {
     setSelectedCategory(category)
   }
 
+  const handleSelectUnit = (unit) => {
+    setSelectedUnit(unit)
+  }
+
   const handleRemoveState = () => {
     setSelectedState('All')
   }
@@ -28,9 +34,14 @@ function HomePage() {
     setSelectedCategory('All')
   }
 
+  const handleRemoveUnit = () => {
+    setSelectedUnit('All')
+  }
+
   const handleClearAll = () => {
     setSelectedState('All')
     setSelectedCategory('All')
+    setSelectedUnit('All')
   }
 
   const filteredStories = useMemo(() => {
@@ -52,6 +63,13 @@ function HomePage() {
       })
     }
 
+    // Filter by unit
+    if (selectedUnit !== 'All') {
+      filtered = filtered.filter(story => {
+        return story.unit === selectedUnit
+      })
+    }
+
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim()
@@ -64,7 +82,8 @@ function HomePage() {
           ...categories,
           story.author,
           story.authorTitle,
-          ...states
+          ...states,
+          story.unit || ''
         ].join(' ').toLowerCase()
         
         return searchableText.includes(query)
@@ -72,7 +91,7 @@ function HomePage() {
     }
 
     return filtered
-  }, [selectedState, selectedCategory, searchQuery])
+  }, [selectedState, selectedCategory, selectedUnit, searchQuery])
 
   return (
     <Layout>
@@ -82,8 +101,10 @@ function HomePage() {
             <ActiveFilters
               selectedState={selectedState}
               selectedCategory={selectedCategory}
+              selectedUnit={selectedUnit}
               onRemoveState={handleRemoveState}
               onRemoveCategory={handleRemoveCategory}
+              onRemoveUnit={handleRemoveUnit}
               onClearAll={handleClearAll}
             />
             <div className="filters-header">
@@ -94,6 +115,10 @@ function HomePage() {
               <FilterPills stories={stories} selectedState={selectedState} onSelectState={handleSelectState} />
             </div>
             <div className="sidenav-filters">
+              <h4 className="my-6">Units</h4>
+              <UnitFilterPills stories={stories} selectedUnit={selectedUnit} onSelectUnit={handleSelectUnit} />
+            </div>
+            <div className="sidenav-filters">
               <h4 className="my-6">Categories</h4>
               <CategoryFilterPills stories={stories} selectedCategory={selectedCategory} onSelectCategory={handleSelectCategory} />
             </div>
@@ -102,7 +127,7 @@ function HomePage() {
           <main className="center-content" data-node-id="17:4792">
             <div className="section-text" data-node-id="17:4793">
               <div className="section-top" data-node-id="I17:4793;195:7369">
-                <p className="section-title" data-node-id="I17:4793;195:7370">YOUR FEED</p>
+                <p className="section-title" data-node-id="I17:4793;195:7370">YOUR FEED ({filteredStories.length})</p>
               </div>
             </div>
 

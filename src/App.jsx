@@ -11,6 +11,7 @@ import MyStoriesPage from './pages/MyStoriesPage'
 import EditStoryPage from './pages/EditStoryPage'
 import StoryDetailPage from './pages/StoryDetailPage'
 import AuthorPage from './pages/AuthorPage'
+import StorytellingMapPage from './pages/StorytellingMapPage'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/edit-story/:id" element={<EditStoryPage />} />
       <Route path="/story/:id" element={<StoryDetailPage />} />
       <Route path="/author/:authorName" element={<AuthorPage />} />
+      <Route path="/storytelling-map" element={<StorytellingMapPage />} />
     </Routes>
   )
 }

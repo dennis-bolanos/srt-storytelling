@@ -61,7 +61,13 @@ function StoryDetailPage() {
                 <p className="user-title">{story.authorTitle}</p>
               </div>
             </div>
-            <p className="story-date">Published on March 15, 2024</p>
+            <p className="story-date">Published on {story.date || 'March 15, 2024'}</p>
+            {story.location && (
+              <p className="story-location">
+                <span className="material-icons location-icon">location_on</span>
+                {story.location}
+              </p>
+            )}
           </div>
         </div>
 

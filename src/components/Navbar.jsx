@@ -37,7 +37,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="menu-item" data-node-id="I17:4883;17:3422;117:331">
-          <p>About</p>
+          <Link to="/storytelling-map" style={{ textDecoration: 'none', color: 'inherit' }} onClick={closeMenu}>
+            <p>Storytelling Map</p>
+          </Link>
         </div>
         <div className="menu-item" data-node-id="I17:4883;17:3422;117:332">
           <p>Contact</p>

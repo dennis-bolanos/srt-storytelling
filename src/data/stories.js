@@ -9,7 +9,10 @@ export const stories = [
     description: 'Discover how to supercharge your daily routine with actionable productivity tips. Learn to prioritize tasks, manage time effectively, and eliminate distractions for optimal performance. Transform your workday and achieve more with less stress.',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=592&h=320&fit=crop',
     author: 'Elias Thompson',
-    authorTitle: 'Efficiency Expert'
+    authorTitle: 'Efficiency Expert',
+    date: 'March 15, 2024',
+    location: 'San Francisco, CA',
+    unit: 'Alpha Unit'
   },
   {
     id: 24,
@@ -19,7 +22,10 @@ export const stories = [
     description: 'Unlock the secrets of effective time management through strategic planning techniques. Learn how to break down complex projects, set realistic deadlines, and create systems that help you accomplish more in less time. Transform chaos into clarity with proven organizational methods.',
     image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=592&h=320&fit=crop',
     author: 'Elias Thompson',
-    authorTitle: 'Efficiency Expert'
+    authorTitle: 'Efficiency Expert',
+    date: 'February 28, 2024',
+    location: 'Austin, TX',
+    unit: 'Beta Unit'
   },
   {
     id: 25,
@@ -29,7 +35,10 @@ export const stories = [
     description: 'Explore the science behind habit formation and discover how to create sustainable work routines that stick. Learn to identify your peak performance hours, design your environment for success, and build momentum through consistent daily practices that compound over time.',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=592&h=320&fit=crop',
     author: 'Elias Thompson',
-    authorTitle: 'Efficiency Expert'
+    authorTitle: 'Efficiency Expert',
+    date: 'January 22, 2024',
+    location: 'Seattle, WA',
+    unit: 'Charlie Unit'
   },
   {
     id: 2,
@@ -39,7 +48,10 @@ export const stories = [
     description: 'Explore the benefits of mindfulness practices in the workplace. Understand how meditation, breathing exercises, and awareness techniques can lead to improved concentration and reduced anxiety, enhancing your overall work experience.',
     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=592&h=320&fit=crop',
     author: 'Sofia Martinez',
-    authorTitle: 'Mindfulness Coach'
+    authorTitle: 'Mindfulness Coach',
+    date: 'March 8, 2024',
+    location: 'New York, NY',
+    unit: 'Delta Unit'
   },
   {
     id: 26,
@@ -49,7 +61,10 @@ export const stories = [
     description: 'Discover the transformative power of meditation in nature\'s most serene landscapes. Learn ancient techniques adapted for modern life, from breathwork in desert silence to mindful walking through canyons. Experience how connecting with nature enhances your mental clarity and emotional balance.',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=592&h=320&fit=crop',
     author: 'Sofia Martinez',
-    authorTitle: 'Mindfulness Coach'
+    authorTitle: 'Mindfulness Coach',
+    date: 'February 14, 2024',
+    location: 'Phoenix, AZ',
+    unit: 'Alpha Unit'
   },
   {
     id: 27,
@@ -59,7 +74,10 @@ export const stories = [
     description: 'Delve into evidence-based mindfulness techniques that reduce stress and improve well-being. Understand the neuroscience behind meditation, learn practical exercises you can do anywhere, and discover how regular practice rewires your brain for greater resilience and peace of mind.',
     image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=592&h=320&fit=crop',
     author: 'Sofia Martinez',
-    authorTitle: 'Mindfulness Coach'
+    authorTitle: 'Mindfulness Coach',
+    date: 'January 5, 2024',
+    location: 'Seattle, WA',
+    unit: 'Beta Unit'
   },
   {
     id: 3,
@@ -69,7 +87,10 @@ export const stories = [
     description: 'Learn about the latest collaborative tools that can streamline communication and foster teamwork. Discover how to leverage technology to bring your team closer, improve project management, and boost creativity through collective input.',
     image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=592&h=320&fit=crop',
     author: 'Lucas Chen',
-    authorTitle: 'Collaboration Specialist'
+    authorTitle: 'Collaboration Specialist',
+    date: 'March 20, 2024',
+    location: 'Houston, TX',
+    unit: 'Charlie Unit'
   },
   {
     id: 4,
@@ -79,7 +100,10 @@ export const stories = [
     description: 'Embark on an unforgettable adventure through Washington\'s diverse landscapes. From the lush rainforests of Olympic National Park to the majestic peaks of Mount Rainier, discover the natural beauty that makes this state a haven for outdoor enthusiasts.',
     image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=592&h=320&fit=crop',
     author: 'Alex Rivera',
-    authorTitle: 'Adventure Guide'
+    authorTitle: 'Adventure Guide',
+    date: 'February 10, 2024',
+    location: 'Seattle, WA',
+    unit: 'Delta Unit'
   },
   {
     id: 5,
@@ -89,7 +113,10 @@ export const stories = [
     description: 'Journey through Florida\'s iconic Everglades, where wetlands meet the ocean. Learn about the delicate balance of this unique ecosystem, home to alligators, manatees, and countless bird species. Experience the beauty of Florida\'s natural heritage.',
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=592&h=320&fit=crop',
     author: 'Maria Santos',
-    authorTitle: 'Wildlife Photographer'
+    authorTitle: 'Wildlife Photographer',
+    date: 'March 1, 2024',
+    location: 'Miami, FL',
+    unit: 'Alpha Unit'
   },
   {
     id: 6,
@@ -99,7 +126,10 @@ export const stories = [
     description: 'Witness the awe-inspiring grandeur of the Grand Canyon, one of the world\'s most spectacular natural wonders. Explore Arizona\'s desert landscapes, from red rock formations to ancient canyons, and discover the timeless beauty of the American Southwest.',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=592&h=320&fit=crop',
     author: 'James Wilson',
-    authorTitle: 'Desert Explorer'
+    authorTitle: 'Desert Explorer',
+    date: 'February 18, 2024',
+    location: 'Phoenix, AZ',
+    unit: 'Beta Unit'
   },
   {
     id: 13,
@@ -109,7 +139,10 @@ export const stories = [
     description: 'Marvel at the granite cliffs and waterfalls of Yosemite Valley, one of America\'s most iconic national parks. Experience the grandeur of El Capitan, Half Dome, and Yosemite Falls in this natural cathedral of stone and water.',
     image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=592&h=320&fit=crop',
     author: 'Jennifer White',
-    authorTitle: 'Park Ranger'
+    authorTitle: 'Park Ranger',
+    date: 'March 12, 2024',
+    location: 'Los Angeles, CA',
+    unit: 'Charlie Unit'
   },
   {
     id: 20,
@@ -119,7 +152,10 @@ export const stories = [
     description: 'Explore the Finger Lakes region, where glacial lakes create a stunning landscape perfect for wine country adventures. Experience rolling hills, vineyards, and the natural beauty that makes this area a year-round destination.',
     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=592&h=320&fit=crop',
     author: 'Kevin Mitchell',
-    authorTitle: 'Travel Writer'
+    authorTitle: 'Travel Writer',
+    date: 'January 30, 2024',
+    location: 'New York, NY',
+    unit: 'Delta Unit'
   },
   {
     id: 21,
@@ -129,7 +165,10 @@ export const stories = [
     description: 'Discover Padre Island National Seashore, the longest undeveloped barrier island in the world. Experience pristine beaches, diverse wildlife, and the natural beauty of Texas\'s Gulf Coast.',
     image: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=592&h=320&fit=crop',
     author: 'Nicole Adams',
-    authorTitle: 'Beach Naturalist'
+    authorTitle: 'Beach Naturalist',
+    date: 'February 5, 2024',
+    location: 'Corpus Christi, TX',
+    unit: 'Alpha Unit'
   },
   {
     id: 23,
@@ -139,6 +178,9 @@ export const stories = [
     description: 'Dive into the crystal-clear springs of Crystal River, where you can swim with manatees in their natural habitat. Experience the unique ecosystem of Florida\'s freshwater springs, home to diverse aquatic life.',
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=592&h=320&fit=crop',
     author: 'Stephanie Wright',
-    authorTitle: 'Dive Instructor'
+    authorTitle: 'Dive Instructor',
+    date: 'March 3, 2024',
+    location: 'Crystal River, FL',
+    unit: 'Beta Unit'
   }
 ]

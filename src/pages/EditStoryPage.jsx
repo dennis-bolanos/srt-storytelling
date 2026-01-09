@@ -19,8 +19,11 @@ function EditStoryPage() {
     title: '',
     category: '',
     state: 'California',
+    unit: 'Alpha Unit',
     author: '',
     authorTitle: '',
+    date: '',
+    location: '',
     step1: '',
     image: '',
     step2: '',
@@ -44,6 +47,7 @@ function EditStoryPage() {
 
   const states = ['California', 'New York', 'Texas', 'Washington', 'Florida', 'Arizona']
   const categories = ['Productivity', 'Mindfulness', 'Collaboration', 'Adventure', 'Nature', 'Travel', 'Wellness', 'Innovation']
+  const units = ['Alpha Unit', 'Beta Unit', 'Charlie Unit', 'Delta Unit']
 
   useEffect(() => {
     // Load story from localStorage
@@ -58,8 +62,11 @@ function EditStoryPage() {
           title: story.title || story.formData.step1 || '',
           category: story.category || '',
           state: story.state || 'California',
+          unit: story.unit || 'Alpha Unit',
           author: story.author || '',
           authorTitle: story.authorTitle || '',
+          date: story.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+          location: story.location || '',
           step1: story.formData.step1 || story.title || '',
           image: image,
           step2: story.formData.step2 || '',
@@ -75,8 +82,11 @@ function EditStoryPage() {
           title: story.title || '',
           category: story.category || '',
           state: story.state || 'California',
+          unit: story.unit || 'Alpha Unit',
           author: story.author || '',
           authorTitle: story.authorTitle || '',
+          date: story.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+          location: story.location || '',
           step1: story.title || '',
           image: image,
           step2: story.description || '',
@@ -169,9 +179,12 @@ function EditStoryPage() {
         title: formData.step1,
         category: formData.category,
         state: formData.state,
+        unit: formData.unit || 'Alpha Unit',
         author: formData.author,
         authorTitle: formData.authorTitle,
         image: formData.image,
+        date: formData.date || savedStories[storyIndex].date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+        location: formData.location || savedStories[storyIndex].location || '',
         formData: {
           step1: formData.step1,
           image: formData.image,
@@ -180,8 +193,7 @@ function EditStoryPage() {
           step4: formData.step4,
           step5: formData.step5
         },
-        // Preserve date and status if they exist
-        date: savedStories[storyIndex].date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+        // Preserve status if it exists
         status: savedStories[storyIndex].status || 'Pending Review'
       }
       
@@ -389,6 +401,59 @@ function EditStoryPage() {
                 placeholder="e.g., Adventure Guide, Nature Enthusiast"
               />
             </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="date" className="form-label">Publication Date *</label>
+            <input
+              type="text"
+              id="date"
+              name="date"
+              className="form-input"
+              value={formData.date}
+              onChange={handleChange}
+              required
+              placeholder="e.g., March 15, 2024"
+            />
+            <small className="form-hint" style={{ color: '#697077', fontSize: '13px', marginTop: '4px', display: 'block' }}>
+              Format: Month Day, Year (e.g., March 15, 2024)
+            </small>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="location" className="form-label">Location *</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              className="form-input"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              placeholder="e.g., San Francisco, CA"
+            />
+            <small className="form-hint" style={{ color: '#697077', fontSize: '13px', marginTop: '4px', display: 'block' }}>
+              City and state where this story originates (e.g., San Francisco, CA)
+            </small>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="unit" className="form-label">Unit *</label>
+            <select
+              id="unit"
+              name="unit"
+              className="form-input"
+              value={formData.unit}
+              onChange={handleChange}
+              required
+            >
+              {units.map(unit => (
+                <option key={unit} value={unit}>{unit}</option>
+              ))}
+            </select>
+            <small className="form-hint" style={{ color: '#697077', fontSize: '13px', marginTop: '4px', display: 'block' }}>
+              Select the unit associated with this story
+            </small>
           </div>
 
           <div className="form-actions">
